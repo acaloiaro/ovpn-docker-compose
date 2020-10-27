@@ -1,0 +1,14 @@
+version: "3"
+services:
+  openvpn:
+    privileged: true 
+    image: kylemanna/openvpn
+    volumes:
+            - ./data:/etc/openvpn/
+            - /etc/localtime:/etc/localtime
+    ports:
+            - "1194:1194/udp"
+    expose:
+            - 5555
+    cap_add:
+            - NET_ADMIN
